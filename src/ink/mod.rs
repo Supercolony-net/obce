@@ -18,3 +18,13 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#[cfg(feature = "std")]
+pub use ink_engine;
+pub use ink_env;
+pub use ink_lang;
+#[cfg(feature = "std")]
+pub use ink_metadata;
+pub use ink_prelude;
+pub use ink_primitives;
+pub use ink_storage;

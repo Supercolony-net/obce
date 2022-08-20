@@ -18,3 +18,36 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#[macro_export]
+macro_rules! format_err_spanned {
+    ($tokens:expr, $($msg:tt)*) => {
+        ::syn::Error::new_spanned(
+            &$tokens,
+            format_args!($($msg)*)
+        )
+    }
+}
+
+pub fn into_u16(ident: &syn::Ident) -> u16 {
+    let mut output = [0; 32];
+    blake2b_256(ident.to_string().as_bytes(), &mut output);
+    u16::from_le_bytes([output[0], output[1]])
+}
+
+pub fn into_u32(ident: &syn::Ident) -> u32 {
+    let mut output = [0; 32];
+    blake2b_256(ident.to_string().as_bytes(), &mut output);
+    u32::from_le_bytes([output[0], output[1], output[2], output[3]])
+}
+
+pub fn blake2b_256(input: &[u8], output: &mut [u8; 32]) {
+    use ::blake2::digest::{consts::U32, Digest as _};
+
+    type Blake2b256 = blake2::Blake2b<U32>;
+
+    let mut blake2 = Blake2b256::new();
+    blake2.update(input);
+    let result = blake2.finalize();
+    output.copy_from_slice(&result);
+}

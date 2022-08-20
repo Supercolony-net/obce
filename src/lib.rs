@@ -18,3 +18,17 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#![cfg_attr(not(feature = "std"), no_std)]
+
+#[cfg(feature = "ink")]
+pub mod ink;
+#[cfg(feature = "substrate")]
+pub mod substrate;
+
+pub mod codegen;
+
+pub use obce_macro::{
+    definition,
+    implementation,
+};

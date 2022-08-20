@@ -1,0 +1,31 @@
+[package]
+name = "obce-codegen"
+version = "0.1.0"
+authors = ["Supercolony <green.baneling@supercolony.net>"]
+edition = "2021"
+
+license = "MIT"
+repository = "TODO:"
+documentation = "TODO:"
+homepage = "https://supercolony.net"
+description = "TODO:"
+keywords = ["wasm", "supercolony", "smart-contracts", "blockchain", "ink"]
+categories = ["no-std", "embedded"]
+include = ["Cargo.toml", "src/**/*.rs"]
+
+[dependencies]
+syn = { version = "1", features = ["parsing", "full", "visit", "extra-traits"] }
+quote = "1"
+proc-macro2 = "1"
+blake2 = "0.10"
+
+[lib]
+name = "obce_codegen"
+path = "src/lib.rs"
+crate-type = [
+    "rlib",
+]
+
+[features]
+default = ["std"]
+std = []

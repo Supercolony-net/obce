@@ -18,3 +18,15 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+// TODO: Add comments
+pub trait ExtensionDescription {
+    const ID: u16;
+}
+
+// TODO: Add comments
+pub trait MethodDescription<const METHOD_HASH: u32> {
+    const ID: u16;
+    type Input;
+    type Output;
+}

@@ -18,3 +18,11 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+mod definition;
+mod implementation;
+mod types;
+mod utils;
+
+pub use crate::definition::ChainExtensionDefinition;
+pub use crate::implementation::ChainExtensionImplementation;

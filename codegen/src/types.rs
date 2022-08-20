@@ -18,3 +18,37 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+use syn::ext::IdentExt;
+use syn::parse::{Parse, ParseStream};
+use syn::NestedMeta;
+
+pub struct AttributeArgs(Vec<NestedMeta>);
+
+impl Parse for AttributeArgs {
+    fn parse(input: ParseStream) -> syn::Result<Self> {
+        let mut attrs = Vec::new();
+        while input.peek(syn::Ident::peek_any) {
+            attrs.push(input.parse()?);
+            if input.is_empty() {
+                break;
+            }
+            let _: syn::token::Comma = input.parse()?;
+        }
+        Ok(AttributeArgs { 0: attrs })
+    }
+}
+
+impl std::ops::Deref for AttributeArgs {
+    type Target = Vec<NestedMeta>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl std::ops::DerefMut for AttributeArgs {
+    fn deref_mut(&mut self) -> &mut Vec<NestedMeta> {
+        &mut self.0
+    }
+}

@@ -18,3 +18,30 @@
 // LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#![cfg_attr(not(feature = "std"), no_std)]
+
+use proc_macro::TokenStream;
+
+use obce_codegen::{
+    ChainExtensionDefinition,
+    ChainExtensionImplementation,
+};
+
+// TODO: Add comments with examples
+#[proc_macro_attribute]
+pub fn definition(attrs: TokenStream, trait_item: TokenStream) -> TokenStream {
+    match ChainExtensionDefinition::generate(attrs.into(), trait_item.into()) {
+        Ok(traits) => traits.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
+}
+
+// TODO: Add comments with examples
+#[proc_macro_attribute]
+pub fn implementation(attrs: TokenStream, impl_item: TokenStream) -> TokenStream {
+    match ChainExtensionImplementation::generate(attrs.into(), impl_item.into()) {
+        Ok(impls) => impls.into(),
+        Err(err) => err.to_compile_error().into(),
+    }
+}
