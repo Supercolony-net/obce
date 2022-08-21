@@ -23,14 +23,22 @@ mod is_critical_error;
 
 pub use frame_support;
 pub use frame_system;
-pub use is_critical_error::{ToCriticalErr, ToCriticalErrFallback};
+pub use is_critical_error::{
+    ToCriticalErr,
+    ToCriticalErrFallback,
+};
 pub use pallet_contracts;
 pub use sp_core;
 pub use sp_runtime;
 pub use sp_std;
 
 use frame_system::Config as SysConfig;
-use pallet_contracts::chain_extension::{BufInBufOutState, Environment, Ext, UncheckedFrom};
+use pallet_contracts::chain_extension::{
+    BufInBufOutState,
+    Environment,
+    Ext,
+    UncheckedFrom,
+};
 use sp_runtime::DispatchError;
 
 pub struct ExtensionContext<'a, 'b, E: Ext, T, Extension>

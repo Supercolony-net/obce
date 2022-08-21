@@ -22,11 +22,24 @@
 use crate::{
     format_err_spanned,
     types::AttributeArgs,
-    utils::{into_u16, into_u32},
+    utils::{
+        into_u16,
+        into_u32,
+    },
 };
 use proc_macro2::TokenStream;
 use quote::quote;
-use syn::{parse2, Error, ItemTrait, Lit, Meta, NestedMeta, ReturnType, TraitItem, TraitItemMethod};
+use syn::{
+    parse2,
+    Error,
+    ItemTrait,
+    Lit,
+    Meta,
+    NestedMeta,
+    ReturnType,
+    TraitItem,
+    TraitItemMethod,
+};
 
 struct Config {
     id: u16,
@@ -90,7 +103,7 @@ impl MethodConfig {
     fn parse_attributes(&mut self, method_item: &TraitItemMethod) -> Result<(), Error> {
         for attr in method_item.attrs.iter() {
             if !attr.path.is_ident("obce") {
-                continue;
+                continue
             }
 
             let attrs = parse2::<AttributeArgs>(attr.tokens.clone())
@@ -121,7 +134,7 @@ impl ChainExtensionDefinition {
                 return Err(format_err_spanned!(
                     item,
                     "only methods are supported in the trait definition",
-                ));
+                ))
             }
         }
 
@@ -131,7 +144,7 @@ impl ChainExtensionDefinition {
                 return Err(format_err_spanned!(
                     default,
                     "default implementation is not supported in chains extension",
-                ));
+                ))
             }
 
             let config = MethodConfig::new(&method)?;
@@ -263,8 +276,10 @@ fn extract_attributes(attrs: AttributeArgs) -> Result<Option<u16>, Error> {
                                 error,
                             )
                         })?);
+                    } else if let Lit::Str(lit_id) = &value.lit {
+                        id = Some(into_u16(lit_id.value()));
                     } else {
-                        Err(format_err_spanned!(value, "id should be integer"))?;
+                        Err(format_err_spanned!(value, "id should be integer or string"))?;
                     }
                 }
             }

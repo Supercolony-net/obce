@@ -29,20 +29,23 @@ macro_rules! format_err_spanned {
     }
 }
 
-pub fn into_u16(ident: &syn::Ident) -> u16 {
+pub fn into_u16<T: ToString>(ident: T) -> u16 {
     let mut output = [0; 32];
     blake2b_256(ident.to_string().as_bytes(), &mut output);
-    u16::from_le_bytes([output[0], output[1]])
+    u16::from_be_bytes([output[0], output[1]])
 }
 
-pub fn into_u32(ident: &syn::Ident) -> u32 {
+pub fn into_u32<T: ToString>(ident: T) -> u32 {
     let mut output = [0; 32];
     blake2b_256(ident.to_string().as_bytes(), &mut output);
-    u32::from_le_bytes([output[0], output[1], output[2], output[3]])
+    u32::from_be_bytes([output[0], output[1], output[2], output[3]])
 }
 
 pub fn blake2b_256(input: &[u8], output: &mut [u8; 32]) {
-    use ::blake2::digest::{consts::U32, Digest as _};
+    use ::blake2::digest::{
+        consts::U32,
+        Digest as _,
+    };
 
     type Blake2b256 = blake2::Blake2b<U32>;
 

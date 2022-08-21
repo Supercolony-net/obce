@@ -24,5 +24,7 @@ mod implementation;
 mod types;
 mod utils;
 
-pub use crate::definition::ChainExtensionDefinition;
-pub use crate::implementation::ChainExtensionImplementation;
+pub use crate::{
+    definition::ChainExtensionDefinition,
+    implementation::ChainExtensionImplementation,
+};

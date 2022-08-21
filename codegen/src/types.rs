@@ -19,9 +19,14 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-use syn::ext::IdentExt;
-use syn::parse::{Parse, ParseStream};
-use syn::NestedMeta;
+use syn::{
+    ext::IdentExt,
+    parse::{
+        Parse,
+        ParseStream,
+    },
+    NestedMeta,
+};
 
 pub struct AttributeArgs(Vec<NestedMeta>);
 
@@ -31,7 +36,7 @@ impl Parse for AttributeArgs {
         while input.peek(syn::Ident::peek_any) {
             attrs.push(input.parse()?);
             if input.is_empty() {
-                break;
+                break
             }
             let _: syn::token::Comma = input.parse()?;
         }

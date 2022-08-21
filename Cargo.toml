@@ -75,6 +75,7 @@ substrate-std = [
 ]
 ink-std = [
     "std",
+    "ink",
     "ink_primitives/std",
     "ink_metadata/std",
     "ink_env/std",
