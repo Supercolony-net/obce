@@ -84,3 +84,9 @@ ink-std = [
     "ink_prelude/std",
     "ink_engine/std",
 ]
+runtime-benchmarks = [
+    "frame-system/runtime-benchmarks",
+    "frame-support/runtime-benchmarks",
+    "pallet-contracts/runtime-benchmarks",
+    "sp-runtime/runtime-benchmarks",
+]
