@@ -26,12 +26,12 @@ scale-info = { version = "2", default-features = false, features = ["derive"] }
 obce-macro = { path = "macro", default-features = false }
 
 # Substrate deps
-sp-std = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
-sp-runtime = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
-sp-core = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
-frame-support = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
-frame-system = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
-pallet-contracts = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true }
+sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
+frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
+frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
+pallet-contracts = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.29", default-features = false, optional = true }
 
 # Ink deps
 ink_primitives = { version = "3", default-features = false, optional = true }
