@@ -18,4 +18,4 @@ to simplify benchmarking of the chain extension.
 - [ ] Maybe ore features based on the use cases=)
 
 ## Chain extension examples
-- [`pallet-assets`](https://github.com/Supercolony-net/pallet-assets-chain-extension)
+- [`pallet-assets`](https://github.com/727-Ventures/pallet-assets-chain-extension)

@@ -7,15 +7,15 @@ members = [
 [package]
 name = "obce"
 version = "0.1.0"
-authors = ["Supercolony <green.baneling@supercolony.net>"]
+authors = ["727.Ventures <green.baneling@727.ventures>"]
 edition = "2021"
 
 license = "MIT"
 repository = "TODO:"
 documentation = "TODO:"
-homepage = "https://supercolony.net"
+homepage = "https://727.ventures"
 description = "OpenBursh chain extension(OBCE) - util to simplify chain extension development."
-keywords = ["wasm", "supercolony", "smart-contracts", "blockchain", "chain-extension"]
+keywords = ["wasm", "727.ventures", "smart-contracts", "blockchain", "chain-extension"]
 categories = ["no-std", "embedded"]
 include = ["Cargo.toml", "src/**/*.rs"]
 

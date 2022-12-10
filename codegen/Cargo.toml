@@ -1,15 +1,15 @@
 [package]
 name = "obce-codegen"
 version = "0.1.0"
-authors = ["Supercolony <green.baneling@supercolony.net>"]
+authors = ["727.Ventures <green.baneling@727.ventures>"]
 edition = "2021"
 
 license = "MIT"
 repository = "TODO:"
 documentation = "TODO:"
-homepage = "https://supercolony.net"
+homepage = "https://727.ventures"
 description = "TODO:"
-keywords = ["wasm", "supercolony", "smart-contracts", "blockchain", "ink"]
+keywords = ["wasm", "727.ventures", "smart-contracts", "blockchain", "ink"]
 categories = ["no-std", "embedded"]
 include = ["Cargo.toml", "src/**/*.rs"]
 
