@@ -241,10 +241,11 @@ impl ChainExtensionDefinition {
                         None
                     }
                 });
+
                 method.default = Some(
                     parse2(quote! {
                         {
-                            ::obce::ink::ink_env::chain_extension::ChainExtensionMethod::build(#id)
+                            ::obce::ink::ink::env::chain_extension::ChainExtensionMethod::build(#id)
                                 .input::<#input>()
                                 .output::<#output>()
                                 .ignore_error_code()
