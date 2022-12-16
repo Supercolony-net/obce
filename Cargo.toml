@@ -35,6 +35,7 @@ pallet-contracts = { git = "https://github.com/paritytech/substrate", branch = "
 
 # Ink deps
 ink_lang = { package = "ink", version = "4.0.0-beta", default-features = false, optional = true }
+ink_engine = { version = "4.0.0-beta", default-features = false, optional = true }
 
 [features]
 default = ["std"]
@@ -67,6 +68,7 @@ ink-std = [
     "std",
     "ink",
     "ink_lang/std",
+    "ink_engine/std"
 ]
 runtime-benchmarks = [
     "frame-system/runtime-benchmarks",
