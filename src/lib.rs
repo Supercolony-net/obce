@@ -30,5 +30,6 @@ pub mod codegen;
 
 pub use obce_macro::{
     definition,
+    error,
     implementation,
 };

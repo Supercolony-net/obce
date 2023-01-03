@@ -20,11 +20,13 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 mod definition;
+mod error;
 mod implementation;
 mod types;
 mod utils;
 
 pub use crate::{
     definition::ChainExtensionDefinition,
+    error::ChainExtensionError,
     implementation::ChainExtensionImplementation,
 };

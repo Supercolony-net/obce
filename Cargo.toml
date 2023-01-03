@@ -90,3 +90,8 @@ runtime-benchmarks = [
     "pallet-contracts/runtime-benchmarks",
     "sp-runtime/runtime-benchmarks",
 ]
+
+[[test]]
+name = "error-macro"
+path = "tests/errors.rs"
+required-features = ["substrate-std"]
